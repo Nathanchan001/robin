@@ -5,6 +5,8 @@ from .trackerfield import TrackerField  # noqa: F401
 
 try:
     from shapely.geos import lgeos  # noqa: F401
+except ImportError:
+    pass  # shapely>=2.0 removed lgeos; not needed at runtime
 except OSError as err:  # pragma: no cover
     msg = (
         "An error was encountered when importing the shapely package. "
